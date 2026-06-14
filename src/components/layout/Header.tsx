@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container } from "./Container";
 import styles from "./Header.module.css";
@@ -13,6 +13,20 @@ const NAV_ITEMS = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleMenu = useCallback(() => {
     setMobileOpen((prev) => !prev);
@@ -22,8 +36,15 @@ export function Header() {
     setMobileOpen(false);
   }, []);
 
+  const headerClassName = [
+    styles.header,
+    scrolled ? styles.scrolled : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <header className={styles.header}>
+    <header className={headerClassName}>
       <Container>
         <div className={styles.inner}>
           <Link to="/" className={styles.logo} aria-label="Vetra - Pagina inicial">
@@ -98,39 +119,41 @@ export function Header() {
 
       <div
         id="mobile-menu"
-        className={mobileOpen ? styles.mobileMenuOpen : styles.mobileMenu}
+        className={`${styles.mobileMenu} ${mobileOpen ? styles.mobileMenuOpen : ""}`}
         role="navigation"
         aria-label="Menu mobile"
       >
-        {NAV_ITEMS.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            className={styles.mobileNavLink}
-            onClick={closeMenu}
-          >
-            {item.label}
-          </a>
-        ))}
-        <div className={styles.mobileActions}>
-          <a
-            href={`${PORTAL_URL}/login`}
-            className={styles.btnGhost}
-            onClick={(e) => {
-              e.preventDefault();
-              closeMenu();
-              window.location.href = `${PORTAL_URL}/login`;
-            }}
-          >
-            Entrar
-          </a>
-          <Link
-            to="/cadastro"
-            className={styles.btnPrimary}
-            onClick={closeMenu}
-          >
-            Cadastre-se
-          </Link>
+        <div className={styles.mobileMenuInner}>
+          {NAV_ITEMS.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={styles.mobileNavLink}
+              onClick={closeMenu}
+            >
+              {item.label}
+            </a>
+          ))}
+          <div className={styles.mobileActions}>
+            <a
+              href={`${PORTAL_URL}/login`}
+              className={styles.btnGhost}
+              onClick={(e) => {
+                e.preventDefault();
+                closeMenu();
+                window.location.href = `${PORTAL_URL}/login`;
+              }}
+            >
+              Entrar
+            </a>
+            <Link
+              to="/cadastro"
+              className={styles.btnPrimary}
+              onClick={closeMenu}
+            >
+              Cadastre-se
+            </Link>
+          </div>
         </div>
       </div>
     </header>

@@ -1,4 +1,54 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ========================================
+   Design Tokens
+   ======================================== */
+
+:root {
+  /* Colors — Primitive */
+  --color-sage-50: #F7FAF8;
+  --color-sage-100: #EEF5F1;
+  --color-sage-200: #D7E3DC;
+  --color-sage-600: #4F6257;
+  --color-sage-900: #17211B;
+
+  --color-green-600: #1F6F5B;
+  --color-green-700: #185746;
+  --color-green-400: #7CA982;
+
+  /* Colors — Semantic */
+  --color-background: var(--color-sage-50);
+  --color-surface: #FFFFFF;
+  --color-surface-muted: var(--color-sage-100);
+  --color-border: var(--color-sage-200);
+  --color-text-primary: var(--color-sage-900);
+  --color-text-secondary: var(--color-sage-600);
+  --color-primary: var(--color-green-600);
+  --color-primary-hover: var(--color-green-700);
+  --color-accent: var(--color-green-400);
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(23, 33, 27, 0.06);
+  --shadow-md: 0 4px 12px rgba(23, 33, 27, 0.08);
+  --shadow-lg: 0 8px 24px rgba(23, 33, 27, 0.12);
+  --shadow-xl: 0 16px 48px rgba(23, 33, 27, 0.16);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-base: 180ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-slow: 300ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ========================================
+   Reset
+   ======================================== */
 
 *,
 *::before,
@@ -21,8 +71,8 @@ body {
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
-  color: #17211b;
-  background-color: #f7faf8;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -68,8 +118,39 @@ p {
 }
 
 :focus-visible {
-  outline: 2px solid #1f6f5b;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

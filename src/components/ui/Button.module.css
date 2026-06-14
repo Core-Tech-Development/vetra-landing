@@ -7,16 +7,16 @@
   font-weight: 500;
   line-height: 1.25;
   cursor: pointer;
-  transition: background-color 180ms cubic-bezier(0.2, 0, 0, 1),
-    border-color 180ms cubic-bezier(0.2, 0, 0, 1),
-    color 180ms cubic-bezier(0.2, 0, 0, 1);
+  transition: background-color var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base);
   white-space: nowrap;
   user-select: none;
   text-decoration: none;
 }
 
 .button:focus-visible {
-  outline: 2px solid #1f6f5b;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -31,62 +31,62 @@
 .sm {
   padding: 0.375rem 0.75rem;
   font-size: 0.875rem;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-sm);
 }
 
 .md {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
 }
 
 .lg {
   padding: 0.625rem 1.5rem;
   font-size: 1rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
 }
 
 /* Variants */
 .primary {
-  background-color: #1f6f5b;
+  background-color: var(--color-primary);
   color: #ffffff;
-  border-color: #1f6f5b;
+  border-color: var(--color-primary);
 }
 
 .primary:hover:not(:disabled) {
-  background-color: #185746;
-  border-color: #185746;
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
 .secondary {
-  background-color: #ffffff;
-  color: #17211b;
-  border-color: #d7e3dc;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
 }
 
 .secondary:hover:not(:disabled) {
-  background-color: #eef5f1;
+  background-color: var(--color-surface-muted);
 }
 
 .outline {
   background-color: transparent;
-  color: #1f6f5b;
-  border-color: #1f6f5b;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .outline:hover:not(:disabled) {
-  background-color: #eef5f1;
+  background-color: var(--color-surface-muted);
 }
 
 .ghost {
   background-color: transparent;
-  color: #4f6257;
+  color: var(--color-text-secondary);
   border-color: transparent;
 }
 
 .ghost:hover:not(:disabled) {
-  background-color: #eef5f1;
-  color: #17211b;
+  background-color: var(--color-surface-muted);
+  color: var(--color-text-primary);
 }
 
 /* Loading */
@@ -121,19 +121,19 @@
 
 .secondary .spinner::after,
 .loading.secondary .spinner::after {
-  border-color: #17211b;
+  border-color: var(--color-text-primary);
   border-right-color: transparent;
 }
 
 .outline .spinner::after,
 .loading.outline .spinner::after {
-  border-color: #1f6f5b;
+  border-color: var(--color-primary);
   border-right-color: transparent;
 }
 
 .ghost .spinner::after,
 .loading.ghost .spinner::after {
-  border-color: #4f6257;
+  border-color: var(--color-text-secondary);
   border-right-color: transparent;
 }
 

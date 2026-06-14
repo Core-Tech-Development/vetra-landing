@@ -1,69 +1,162 @@
+/* ========================================
+   Footer — 3-column layout
+   ======================================== */
+
 .footer {
-  background-color: #eef5f1;
-  border-top: 1px solid #d7e3dc;
-  padding: 3rem 0 2rem;
+  background-color: var(--color-surface-muted);
+  border-top: 1px solid var(--color-border);
+  padding: 3.5rem 0 2rem;
   margin-top: auto;
 }
 
-.inner {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+/* ========================================
+   Columns grid
+   ======================================== */
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
 }
 
 @media (min-width: 768px) {
-  .inner {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+  .columns {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 3rem;
   }
 }
+
+/* ========================================
+   Brand column
+   ======================================== */
 
 .brand {
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
+}
+
+.brandHeader {
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
+}
+
+.brandLogo {
+  height: 1.75rem;
+  width: auto;
 }
 
 .brandName {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1f6f5b;
+  color: var(--color-primary);
   letter-spacing: -0.02em;
 }
 
 .tagline {
   font-size: 0.875rem;
-  color: #4f6257;
-  line-height: 1.5;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 20rem;
 }
+
+/* ========================================
+   Generic column (Links, Contato)
+   ======================================== */
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.columnTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   Links
+   ======================================== */
 
 .links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 0.625rem;
 }
 
 .link {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #4f6257;
+  color: var(--color-text-secondary);
   text-decoration: none;
-  transition: color 180ms cubic-bezier(0.2, 0, 0, 1);
+  transition: color var(--transition-base);
   white-space: nowrap;
 }
 
 .link:hover {
-  color: #1f6f5b;
+  color: var(--color-primary);
 }
+
+/* ========================================
+   Contact list + Social icons
+   ======================================== */
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  transition:
+    color var(--transition-base),
+    background-color var(--transition-base),
+    border-color var(--transition-base);
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  color: var(--color-primary);
+  background-color: var(--color-surface);
+  border-color: var(--color-primary);
+}
+
+.socialIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* ========================================
+   Copyright
+   ======================================== */
 
 .copyright {
   padding-top: 2rem;
-  border-top: 1px solid #d7e3dc;
-  margin-top: 0;
+  border-top: 1px solid var(--color-border);
+  margin-top: 2.5rem;
 }
 
 .copyrightText {
   font-size: 0.8125rem;
-  color: #4f6257;
+  color: var(--color-text-secondary);
 }

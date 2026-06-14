@@ -1,6 +1,6 @@
 .page {
   padding: 3rem 0 4rem;
-  background-color: #f7faf8;
+  background-color: var(--color-background);
   min-height: 60vh;
 }
 
@@ -22,7 +22,7 @@
 .title {
   font-size: 1.875rem;
   font-weight: 700;
-  color: #17211b;
+  color: var(--color-text-primary);
   letter-spacing: -0.01em;
 }
 
@@ -35,7 +35,7 @@
 .subtitle {
   margin-top: 0.5rem;
   font-size: 1rem;
-  color: #4f6257;
+  color: var(--color-text-secondary);
   line-height: 1.6;
 }
 
@@ -44,9 +44,9 @@
   flex-direction: column;
   gap: 1.25rem;
   padding: 2rem;
-  background-color: #ffffff;
-  border: 1px solid #d7e3dc;
-  border-radius: 0.75rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
 }
 
 @media (min-width: 768px) {
@@ -75,17 +75,17 @@
   margin-top: 1.5rem;
   text-align: center;
   font-size: 0.9375rem;
-  color: #4f6257;
+  color: var(--color-text-secondary);
 }
 
 .link {
-  color: #1f6f5b;
+  color: var(--color-primary);
   font-weight: 500;
   text-decoration: none;
-  transition: color 180ms cubic-bezier(0.2, 0, 0, 1);
+  transition: color var(--transition-base);
 }
 
 .link:hover {
-  color: #185746;
+  color: var(--color-primary-hover);
   text-decoration: underline;
 }

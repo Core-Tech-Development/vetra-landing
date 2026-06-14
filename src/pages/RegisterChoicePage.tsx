@@ -17,24 +17,25 @@ const CHOICES = [
         fill="none"
         aria-hidden="true"
       >
+        <circle cx="24" cy="24" r="22" fill="var(--color-surface-muted)" />
         <rect
-          x="4"
-          y="14"
-          width="40"
-          height="28"
-          rx="3"
-          stroke="#1F6F5B"
+          x="12"
+          y="18"
+          width="24"
+          height="18"
+          rx="2"
+          stroke="var(--color-primary)"
           strokeWidth="2"
         />
         <path
-          d="M16 14V10a8 8 0 0116 0v4"
-          stroke="#1F6F5B"
+          d="M18 18v-3a6 6 0 0112 0v3"
+          stroke="var(--color-primary)"
           strokeWidth="2"
           strokeLinecap="round"
         />
         <path
-          d="M24 24v8M20 28h8"
-          stroke="#1F6F5B"
+          d="M24 24v6M21 27h6"
+          stroke="var(--color-primary)"
           strokeWidth="2"
           strokeLinecap="round"
         />
@@ -55,16 +56,17 @@ const CHOICES = [
         fill="none"
         aria-hidden="true"
       >
-        <circle cx="24" cy="16" r="8" stroke="#1F6F5B" strokeWidth="2" />
+        <circle cx="24" cy="24" r="22" fill="var(--color-surface-muted)" />
+        <circle cx="24" cy="18" r="6" stroke="var(--color-primary)" strokeWidth="2" />
         <path
-          d="M8 42c0-8.837 7.163-16 16-16s16 7.163 16 16"
-          stroke="#1F6F5B"
+          d="M12 38c0-6.627 5.373-12 12-12s12 5.373 12 12"
+          stroke="var(--color-primary)"
           strokeWidth="2"
           strokeLinecap="round"
         />
         <path
-          d="M30 34v4M28 36h4"
-          stroke="#1F6F5B"
+          d="M30 30v4M28 32h4"
+          stroke="var(--color-primary)"
           strokeWidth="2"
           strokeLinecap="round"
         />

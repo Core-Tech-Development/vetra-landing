@@ -13,11 +13,11 @@ function CheckCircleIcon() {
       fill="none"
       aria-hidden="true"
     >
-      <circle cx="40" cy="40" r="38" stroke="#1F6F5B" strokeWidth="3" />
-      <circle cx="40" cy="40" r="32" fill="#EEF5F1" />
+      <circle cx="40" cy="40" r="38" stroke="var(--color-primary)" strokeWidth="3" />
+      <circle cx="40" cy="40" r="32" fill="var(--color-surface-muted)" />
       <path
         d="M28 40l8 8 16-16"
-        stroke="#1F6F5B"
+        stroke="var(--color-primary)"
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
