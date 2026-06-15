@@ -80,6 +80,31 @@ const SPECIALIST_BENEFITS = [
 ] as const;
 
 /* ========================================
+   Pricing Features Data
+   ======================================== */
+
+const PRICING_FEATURES = [
+  {
+    title: "Pague por laudo",
+    description:
+      "A cobranca acontece apenas quando o especialista emite o laudo. Sem exame, sem custo.",
+    icon: "file-check",
+  },
+  {
+    title: "Sem mensalidade",
+    description:
+      "Nao existe assinatura nem taxa fixa. Voce paga somente pelo que usar.",
+    icon: "wallet",
+  },
+  {
+    title: "Pagamento via PIX",
+    description:
+      "Cobrado automaticamente via PIX apos a emissao do laudo. Rapido, seguro e sem burocracia.",
+    icon: "zap",
+  },
+] as const;
+
+/* ========================================
    Stats Data
    ======================================== */
 
@@ -206,6 +231,28 @@ function Icon({ name }: { name: string }) {
         <svg {...props}>
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
           <circle cx="12" cy="10" r="3" />
+        </svg>
+      );
+    case "wallet":
+      return (
+        <svg {...props}>
+          <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
+          <path d="M3 5v14a2 2 0 0 0 2 2h16v-5" />
+          <path d="M18 12a2 2 0 0 0 0 4h4v-4z" />
+        </svg>
+      );
+    case "zap":
+      return (
+        <svg {...props}>
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+        </svg>
+      );
+    case "receipt":
+      return (
+        <svg {...props}>
+          <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z" />
+          <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+          <path d="M12 17.5v-11" />
         </svg>
       );
     default:
@@ -392,6 +439,49 @@ export function HomePage() {
                 width={1200}
                 height={800}
               />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Pricing Section */}
+      <section className={styles.pricing} id="cobranca">
+        <Container>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>
+              Cobranca simples e transparente
+            </h2>
+            <p className={styles.sectionSubtitle}>
+              A Vetra utiliza o modelo <strong>taxa por laudo</strong>. A clinica
+              so e cobrada quando o especialista emite o laudo diagnostico.
+            </p>
+          </div>
+
+          <div className={styles.pricingGrid}>
+            {PRICING_FEATURES.map((feature) => (
+              <div key={feature.title} className={styles.pricingCard}>
+                <div className={styles.pricingIconCircle} aria-hidden="true">
+                  <Icon name={feature.icon} />
+                </div>
+                <h3 className={styles.pricingCardTitle}>{feature.title}</h3>
+                <p className={styles.pricingCardDescription}>
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.pricingNote}>
+            <div className={styles.pricingNoteIcon} aria-hidden="true">
+              <Icon name="receipt" />
+            </div>
+            <div>
+              <p className={styles.pricingNoteTitle}>Como funciona o valor?</p>
+              <p className={styles.pricingNoteText}>
+                O preco de cada exame e definido pela plataforma com base no tipo de
+                exame. A Vetra retém uma pequena taxa de servico e o restante e
+                repassado ao especialista. Tudo detalhado na sua area de billing.
+              </p>
             </div>
           </div>
         </Container>

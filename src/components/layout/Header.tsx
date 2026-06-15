@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { label: "Como funciona", href: "#como-funciona" },
   { label: "Para Clinicas", href: "#para-clinicas" },
   { label: "Para Especialistas", href: "#para-especialistas" },
+  { label: "Cobranca", href: "#cobranca" },
 ] as const;
 
 export function Header() {
