@@ -4,10 +4,10 @@ import styles from "./RegisterChoicePage.module.css";
 
 const CHOICES = [
   {
-    title: "Clinica Veterinaria",
+    title: "Clínica Veterinária",
     description:
-      "Cadastre sua clinica para encontrar especialistas em diagnostico por imagem na sua regiao.",
-    buttonLabel: "Cadastrar clinica",
+      "Cadastre sua clínica para encontrar especialistas em diagnóstico por imagem na sua região.",
+    buttonLabel: "Cadastrar clínica",
     to: "/cadastro/clinica",
     icon: (
       <svg
@@ -45,7 +45,7 @@ const CHOICES = [
   {
     title: "Especialista",
     description:
-      "Cadastre-se como especialista para receber solicitacoes de clinicas e gerenciar sua agenda.",
+      "Cadastre-se como especialista para receber solicitações de clínicas e gerenciar sua agenda.",
     buttonLabel: "Cadastrar como especialista",
     to: "/cadastro/especialista",
     icon: (

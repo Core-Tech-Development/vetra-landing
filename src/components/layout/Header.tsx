@@ -7,9 +7,9 @@ const PORTAL_URL = import.meta.env.VITE_PORTAL_URL || "http://localhost:5173";
 
 const NAV_ITEMS = [
   { label: "Como funciona", href: "#como-funciona" },
-  { label: "Para Clinicas", href: "#para-clinicas" },
+  { label: "Para Clínicas", href: "#para-clinicas" },
   { label: "Para Especialistas", href: "#para-especialistas" },
-  { label: "Cobranca", href: "#cobranca" },
+  { label: "Cobrança", href: "#cobranca" },
 ] as const;
 
 export function Header() {
@@ -48,12 +48,12 @@ export function Header() {
     <header className={headerClassName}>
       <Container>
         <div className={styles.inner}>
-          <Link to="/" className={styles.logo} aria-label="Vetra - Pagina inicial">
+          <Link to="/" className={styles.logo} aria-label="Vetra - Página inicial">
             <img src="/logo.png" alt="" className={styles.logoImg} />
             Vetra
           </Link>
 
-          <nav className={styles.nav} aria-label="Navegacao principal">
+          <nav className={styles.nav} aria-label="Navegação principal">
             {NAV_ITEMS.map((item) => (
               <a key={item.href} href={item.href} className={styles.navLink}>
                 {item.label}

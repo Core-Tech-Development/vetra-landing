@@ -16,38 +16,38 @@ import styles from "./RegisterClinicPage.module.css";
 const clinicSchema = z.object({
   name: z
     .string()
-    .min(1, "Nome da clinica e obrigatorio.")
-    .max(255, "Nome deve ter no maximo 255 caracteres."),
+    .min(1, "Nome da clínica é obrigatório.")
+    .max(255, "Nome deve ter no máximo 255 caracteres."),
   document: z
     .string()
-    .min(1, "CNPJ e obrigatorio.")
-    .max(20, "CNPJ deve ter no maximo 20 caracteres.")
+    .min(1, "CNPJ é obrigatório.")
+    .max(20, "CNPJ deve ter no máximo 20 caracteres.")
     .regex(
       /^(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2})$/,
-      "CNPJ invalido. Use o formato XX.XXX.XXX/XXXX-XX ou somente digitos.",
+      "CNPJ inválido. Use o formato XX.XXX.XXX/XXXX-XX ou somente dígitos.",
     ),
   email: z
     .string()
-    .min(1, "E-mail e obrigatorio.")
-    .email("E-mail invalido."),
+    .min(1, "E-mail é obrigatório.")
+    .email("E-mail inválido."),
   phone: z.string().optional(),
   address: z.string().optional(),
   city: z.string().optional(),
   state: z.string().optional(),
   password: z
     .string()
-    .min(1, "Senha e obrigatoria."),
-    // TODO: habilitar validacao de senha forte
-    // .min(8, "Senha deve ter no minimo 8 caracteres.")
-    // .regex(/[A-Z]/, "Senha deve conter ao menos uma letra maiuscula.")
-    // .regex(/[a-z]/, "Senha deve conter ao menos uma letra minuscula.")
-    // .regex(/[0-9]/, "Senha deve conter ao menos um numero.")
+    .min(1, "Senha é obrigatória."),
+    // TODO: habilitar validação de senha forte
+    // .min(8, "Senha deve ter no mínimo 8 caracteres.")
+    // .regex(/[A-Z]/, "Senha deve conter ao menos uma letra maiúscula.")
+    // .regex(/[a-z]/, "Senha deve conter ao menos uma letra minúscula.")
+    // .regex(/[0-9]/, "Senha deve conter ao menos um número.")
     // .regex(/[^A-Za-z0-9]/, "Senha deve conter ao menos um caractere especial.")
   confirmPassword: z
     .string()
-    .min(1, "Confirmacao de senha e obrigatoria."),
+    .min(1, "Confirmação de senha é obrigatória."),
 }).refine((data) => data.password === data.confirmPassword, {
-  message: "As senhas nao coincidem.",
+  message: "As senhas não coincidem.",
   path: ["confirmPassword"],
 });
 
@@ -95,7 +95,7 @@ export function RegisterClinicPage() {
     } catch (error: unknown) {
       if (isAxiosError(error) && error.response?.status === 409) {
         showToast(
-          "Ja existe uma clinica cadastrada com este CNPJ.",
+          "Já existe uma clínica cadastrada com este CNPJ.",
           "error",
         );
       } else if (
@@ -119,9 +119,9 @@ export function RegisterClinicPage() {
       <Container>
         <div className={styles.formWrapper}>
           <div className={styles.header}>
-            <h1 className={styles.title}>Cadastro de Clinica</h1>
+            <h1 className={styles.title}>Cadastro de Clínica</h1>
             <p className={styles.subtitle}>
-              Preencha os dados da sua clinica para solicitar acesso a
+              Preencha os dados da sua clínica para solicitar acesso à
               plataforma.
             </p>
           </div>
@@ -132,8 +132,8 @@ export function RegisterClinicPage() {
             noValidate
           >
             <Input
-              label="Nome da clinica *"
-              placeholder="Ex: Clinica Vet Amigo"
+              label="Nome da clínica *"
+              placeholder="Ex: Clínica Vet Amigo"
               error={errors.name?.message}
               {...register("name")}
             />
@@ -178,8 +178,8 @@ export function RegisterClinicPage() {
             />
 
             <Input
-              label="Endereco"
-              placeholder="Rua, numero, bairro"
+              label="Endereço"
+              placeholder="Rua, número, bairro"
               error={errors.address?.message}
               {...register("address")}
             />
@@ -187,7 +187,7 @@ export function RegisterClinicPage() {
             <div className={styles.row}>
               <Input
                 label="Cidade"
-                placeholder="Sao Paulo"
+                placeholder="São Paulo"
                 error={errors.city?.message}
                 {...register("city")}
               />
@@ -214,13 +214,13 @@ export function RegisterClinicPage() {
                 fullWidth
                 isLoading={isSubmitting}
               >
-                Cadastrar clinica
+                Cadastrar clínica
               </Button>
             </div>
           </form>
 
           <p className={styles.switchLink}>
-            E especialista?{" "}
+            É especialista?{" "}
             <Link to="/cadastro/especialista" className={styles.link}>
               Cadastre-se aqui
             </Link>

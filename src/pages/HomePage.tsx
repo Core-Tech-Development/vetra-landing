@@ -9,30 +9,30 @@ import styles from "./HomePage.module.css";
 const STEPS = [
   {
     number: 1,
-    title: "Cadastre sua clinica ou perfil",
+    title: "Cadastre sua clínica ou perfil",
     description:
-      "Crie sua conta gratuitamente e aguarde a aprovacao da plataforma.",
+      "Crie sua conta gratuitamente e aguarde a aprovação da plataforma.",
     icon: "clipboard",
   },
   {
     number: 2,
     title: "Encontre especialistas",
     description:
-      "Busque por especialistas disponiveis na sua regiao e especialidade.",
+      "Busque por especialistas disponíveis na sua região e especialidade.",
     icon: "search",
   },
   {
     number: 3,
     title: "Agende o atendimento",
     description:
-      "Escolha o melhor horario e confirme o agendamento com poucos cliques.",
+      "Escolha o melhor horário e confirme o agendamento com poucos cliques.",
     icon: "calendar",
   },
   {
     number: 4,
     title: "Receba o laudo",
     description:
-      "O especialista realiza o exame e emite o laudo diagnostico diretamente na plataforma.",
+      "O especialista realiza o exame e emite o laudo diagnóstico diretamente na plataforma.",
     icon: "file-text",
   },
 ] as const;
@@ -43,7 +43,7 @@ const STEPS = [
 
 const CLINIC_BENEFITS = [
   {
-    text: "Encontre especialistas qualificados na sua regiao",
+    text: "Encontre especialistas qualificados na sua região",
     icon: "search",
   },
   {
@@ -55,14 +55,14 @@ const CLINIC_BENEFITS = [
     icon: "file-text",
   },
   {
-    text: "Gerencie pacientes e solicitacoes de forma centralizada",
+    text: "Gerencie pacientes e solicitações de forma centralizada",
     icon: "layout",
   },
 ] as const;
 
 const SPECIALIST_BENEFITS = [
   {
-    text: "Receba solicitacoes de clinicas na sua area de cobertura",
+    text: "Receba solicitações de clínicas na sua área de cobertura",
     icon: "bell",
   },
   {
@@ -74,7 +74,7 @@ const SPECIALIST_BENEFITS = [
     icon: "file-text",
   },
   {
-    text: "Construa sua reputacao na plataforma",
+    text: "Construa sua reputação na plataforma",
     icon: "star",
   },
 ] as const;
@@ -87,19 +87,19 @@ const PRICING_FEATURES = [
   {
     title: "Pague por laudo",
     description:
-      "A cobranca acontece apenas quando o especialista emite o laudo. Sem exame, sem custo.",
+      "A cobrança acontece apenas quando o especialista emite o laudo. Sem exame, sem custo.",
     icon: "file-check",
   },
   {
     title: "Sem mensalidade",
     description:
-      "Nao existe assinatura nem taxa fixa. Voce paga somente pelo que usar.",
+      "Não existe assinatura nem taxa fixa. Você paga somente pelo que usar.",
     icon: "wallet",
   },
   {
     title: "Pagamento via PIX",
     description:
-      "Cobrado automaticamente via PIX apos a emissao do laudo. Rapido, seguro e sem burocracia.",
+      "Cobrado automaticamente via PIX após a emissão do laudo. Rápido, seguro e sem burocracia.",
     icon: "zap",
   },
 ] as const;
@@ -109,7 +109,7 @@ const PRICING_FEATURES = [
    ======================================== */
 
 const STATS = [
-  { value: "100+", label: "Clinicas", icon: "building" },
+  { value: "100+", label: "Clínicas", icon: "building" },
   { value: "50+", label: "Especialistas", icon: "users" },
   { value: "1.000+", label: "Laudos emitidos", icon: "file-check" },
   { value: "15+", label: "Cidades atendidas", icon: "map-pin" },
@@ -296,22 +296,22 @@ export function HomePage() {
           <div className={styles.heroGrid}>
             <div className={styles.heroText}>
               <span className={styles.heroBadge}>
-                Plataforma para veterinarios
+                Plataforma para veterinários
               </span>
               <h1 className={styles.heroTitle}>
-                Conectamos clinicas veterinarias a{" "}
+                Conectamos clínicas veterinárias a{" "}
                 <span className={styles.heroHighlight}>
-                  especialistas em diagnostico por imagem
+                  especialistas em diagnóstico por imagem
                 </span>
               </h1>
               <p className={styles.heroSubtitle}>
                 Encontre especialistas qualificados, agende exames e receba
-                laudos de forma rapida e segura. Tudo em uma unica plataforma
-                pensada para o dia a dia da clinica veterinaria.
+                laudos de forma rápida e segura. Tudo em uma única plataforma
+                pensada para o dia a dia da clínica veterinária.
               </p>
               <div className={styles.heroActions}>
                 <Link to="/cadastro/clinica" className={styles.btnPrimaryLarge}>
-                  Cadastrar minha clinica <span aria-hidden="true">&rarr;</span>
+                  Cadastrar minha clínica <span aria-hidden="true">&rarr;</span>
                 </Link>
                 <Link
                   to="/cadastro/especialista"
@@ -324,7 +324,7 @@ export function HomePage() {
             <div className={styles.heroImageWrapper}>
               <img
                 src="/images/hero-vet.jpg"
-                alt="Veterinaria realizando exame de imagem em clinica moderna"
+                alt="Veterinária realizando exame de imagem em clínica moderna"
                 className={styles.heroImage}
                 width={1200}
                 height={800}
@@ -340,7 +340,7 @@ export function HomePage() {
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>Como funciona</h2>
             <p className={styles.sectionSubtitle}>
-              Em quatro passos simples, sua clinica acessa diagnostico por imagem
+              Em quatro passos simples, sua clínica acessa diagnóstico por imagem
               de qualidade.
             </p>
           </div>
@@ -382,7 +382,7 @@ export function HomePage() {
             <div className={styles.audienceImageWrapper}>
               <img
                 src="/images/vet-ultrasound.jpg"
-                alt="Veterinario realizando ultrassom em animal de estimacao"
+                alt="Veterinário realizando ultrassom em animal de estimação"
                 className={styles.audienceImage}
                 loading="lazy"
                 width={1200}
@@ -395,12 +395,12 @@ export function HomePage() {
               </h2>
               <p className={styles.audienceDescription}>
                 Encontre e conecte-se com os melhores especialistas em
-                diagnostico por imagem da sua regiao. Gerencie tudo de forma
+                diagnóstico por imagem da sua região. Gerencie tudo de forma
                 centralizada.
               </p>
               <BenefitList items={CLINIC_BENEFITS} />
               <Link to="/cadastro/clinica" className={styles.btnPrimaryLarge}>
-                Cadastrar minha clinica <span aria-hidden="true">&rarr;</span>
+                Cadastrar minha clínica <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
           </div>
@@ -415,11 +415,11 @@ export function HomePage() {
           >
             <div className={styles.audienceContent}>
               <h2 className={styles.audienceTitle}>
-                Amplie sua atuacao profissional
+                Amplie sua atuação profissional
               </h2>
               <p className={styles.audienceDescription}>
-                Conecte-se com clinicas que precisam da sua expertise. Gerencie
-                sua agenda e construa sua reputacao como especialista.
+                Conecte-se com clínicas que precisam da sua expertise. Gerencie
+                sua agenda e construa sua reputação como especialista.
               </p>
               <BenefitList items={SPECIALIST_BENEFITS} />
               <Link
@@ -433,7 +433,7 @@ export function HomePage() {
             <div className={styles.audienceImageWrapper}>
               <img
                 src="/images/vet-specialist.jpg"
-                alt="Especialista veterinario analisando imagens diagnosticas"
+                alt="Especialista veterinário analisando imagens diagnósticas"
                 className={styles.audienceImage}
                 loading="lazy"
                 width={1200}
@@ -449,11 +449,11 @@ export function HomePage() {
         <Container>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
-              Cobranca simples e transparente
+              Cobrança simples e transparente
             </h2>
             <p className={styles.sectionSubtitle}>
-              A Vetra utiliza o modelo <strong>taxa por laudo</strong>. A clinica
-              so e cobrada quando o especialista emite o laudo diagnostico.
+              A Vetra utiliza o modelo <strong>taxa por laudo</strong>. A clínica
+              só é cobrada quando o especialista emite o laudo diagnóstico.
             </p>
           </div>
 
@@ -478,9 +478,9 @@ export function HomePage() {
             <div>
               <p className={styles.pricingNoteTitle}>Como funciona o valor?</p>
               <p className={styles.pricingNoteText}>
-                O preco de cada exame e definido pela plataforma com base no tipo de
-                exame. A Vetra retém uma pequena taxa de servico e o restante e
-                repassado ao especialista. Tudo detalhado na sua area de billing.
+                O preço de cada exame é definido pela plataforma com base no tipo de
+                exame. A Vetra retém uma pequena taxa de serviço e o restante é
+                repassado ao especialista. Tudo detalhado na sua área de billing.
               </p>
             </div>
           </div>
@@ -491,14 +491,14 @@ export function HomePage() {
       <section className={styles.finalCta}>
         <Container>
           <div className={styles.ctaInner}>
-            <h2 className={styles.ctaTitle}>Pronto para comecar?</h2>
+            <h2 className={styles.ctaTitle}>Pronto para começar?</h2>
             <p className={styles.ctaSubtitle}>
               Cadastre-se gratuitamente e comece a usar a Vetra hoje mesmo.
-              Junte-se a centenas de profissionais que ja confiam na plataforma.
+              Junte-se a centenas de profissionais que já confiam na plataforma.
             </p>
             <div className={styles.ctaActions}>
               <Link to="/cadastro/clinica" className={styles.btnLightLarge}>
-                Sou clinica <span aria-hidden="true">&rarr;</span>
+                Sou clínica <span aria-hidden="true">&rarr;</span>
               </Link>
               <Link
                 to="/cadastro/especialista"

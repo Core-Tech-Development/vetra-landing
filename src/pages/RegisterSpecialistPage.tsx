@@ -25,26 +25,26 @@ const SPECIALTIES = [
   },
   {
     value: "MUSCULOSKELETAL_ULTRASOUND",
-    label: "Ultrassonografia Musculoesqueletica",
+    label: "Ultrassonografia Musculoesquelética",
   },
 ] as const;
 
 const specialistSchema = z.object({
   name: z
     .string()
-    .min(1, "Nome completo e obrigatorio.")
-    .max(255, "Nome deve ter no maximo 255 caracteres."),
+    .min(1, "Nome completo é obrigatório.")
+    .max(255, "Nome deve ter no máximo 255 caracteres."),
   email: z
     .string()
-    .min(1, "E-mail e obrigatorio.")
-    .email("E-mail invalido."),
+    .min(1, "E-mail é obrigatório.")
+    .email("E-mail inválido."),
   phone: z.string().optional(),
   crmv: z
     .string()
-    .min(1, "CRMV e obrigatorio.")
-    .max(20, "CRMV deve ter no maximo 20 caracteres."),
-  crmvState: z.string().min(1, "Estado do CRMV e obrigatorio."),
-  specialty: z.string().min(1, "Especialidade e obrigatoria."),
+    .min(1, "CRMV é obrigatório.")
+    .max(20, "CRMV deve ter no máximo 20 caracteres."),
+  crmvState: z.string().min(1, "Estado do CRMV é obrigatório."),
+  specialty: z.string().min(1, "Especialidade é obrigatória."),
   baseCity: z.string().optional(),
   baseState: z.string().optional(),
   maxTravelRadiusKm: z
@@ -52,28 +52,28 @@ const specialistSchema = z.object({
     .optional()
     .refine(
       (val) => !val || /^\d+$/.test(val),
-      "Informe um numero valido.",
+      "Informe um número válido.",
     )
     .refine(
       (val) => !val || Number(val) >= 1,
-      "Raio minimo e 1 km.",
+      "Raio mínimo é 1 km.",
     ),
-  hasOwnEquipment: z.string().min(1, "Este campo e obrigatorio."),
+  hasOwnEquipment: z.string().min(1, "Este campo é obrigatório."),
   bio: z.string().optional(),
   password: z
     .string()
-    .min(1, "Senha e obrigatoria."),
-    // TODO: habilitar validacao de senha forte
-    // .min(8, "Senha deve ter no minimo 8 caracteres.")
-    // .regex(/[A-Z]/, "Senha deve conter ao menos uma letra maiuscula.")
-    // .regex(/[a-z]/, "Senha deve conter ao menos uma letra minuscula.")
-    // .regex(/[0-9]/, "Senha deve conter ao menos um numero.")
+    .min(1, "Senha é obrigatória."),
+    // TODO: habilitar validação de senha forte
+    // .min(8, "Senha deve ter no mínimo 8 caracteres.")
+    // .regex(/[A-Z]/, "Senha deve conter ao menos uma letra maiúscula.")
+    // .regex(/[a-z]/, "Senha deve conter ao menos uma letra minúscula.")
+    // .regex(/[0-9]/, "Senha deve conter ao menos um número.")
     // .regex(/[^A-Za-z0-9]/, "Senha deve conter ao menos um caractere especial.")
   confirmPassword: z
     .string()
-    .min(1, "Confirmacao de senha e obrigatoria."),
+    .min(1, "Confirmação de senha é obrigatória."),
 }).refine((data) => data.password === data.confirmPassword, {
-  message: "As senhas nao coincidem.",
+  message: "As senhas não coincidem.",
   path: ["confirmPassword"],
 });
 
@@ -129,7 +129,7 @@ export function RegisterSpecialistPage() {
     } catch (error: unknown) {
       if (isAxiosError(error) && error.response?.status === 409) {
         showToast(
-          "Ja existe um especialista cadastrado com este CRMV.",
+          "Já existe um especialista cadastrado com este CRMV.",
           "error",
         );
       } else if (
@@ -139,7 +139,7 @@ export function RegisterSpecialistPage() {
         showToast(error.response.data.message, "error");
       } else if (error instanceof z.ZodError) {
         showToast(
-          "Verifique os campos do formulario e tente novamente.",
+          "Verifique os campos do formulário e tente novamente.",
           "error",
         );
       } else {
@@ -160,7 +160,7 @@ export function RegisterSpecialistPage() {
           <div className={styles.header}>
             <h1 className={styles.title}>Cadastro de Especialista</h1>
             <p className={styles.subtitle}>
-              Preencha seus dados profissionais para solicitar acesso a
+              Preencha seus dados profissionais para solicitar acesso à
               plataforma.
             </p>
           </div>
@@ -231,7 +231,7 @@ export function RegisterSpecialistPage() {
             <div className={styles.row}>
               <Input
                 label="Cidade base"
-                placeholder="Sao Paulo"
+                placeholder="São Paulo"
                 error={errors.baseCity?.message}
                 {...register("baseCity")}
               />
@@ -251,7 +251,7 @@ export function RegisterSpecialistPage() {
             </div>
 
             <Input
-              label="Raio maximo de deslocamento (km)"
+              label="Raio máximo de deslocamento (km)"
               type="number"
               placeholder="Ex: 50"
               min={1}
@@ -260,18 +260,18 @@ export function RegisterSpecialistPage() {
             />
 
             <Select
-              label="Possui equipamento proprio *"
+              label="Possui equipamento próprio *"
               error={errors.hasOwnEquipment?.message}
               {...register("hasOwnEquipment")}
             >
               <option value="">Selecione</option>
               <option value="yes">Sim</option>
-              <option value="no">Nao</option>
+              <option value="no">Não</option>
             </Select>
 
             <Textarea
-              label="Bio / Sobre voce"
-              placeholder="Conte um pouco sobre sua experiencia e formacao..."
+              label="Bio / Sobre você"
+              placeholder="Conte um pouco sobre sua experiência e formação..."
               rows={4}
               error={errors.bio?.message}
               {...register("bio")}
@@ -307,7 +307,7 @@ export function RegisterSpecialistPage() {
           </form>
 
           <p className={styles.switchLink}>
-            E clinica?{" "}
+            É clínica?{" "}
             <Link to="/cadastro/clinica" className={styles.link}>
               Cadastre-se aqui
             </Link>

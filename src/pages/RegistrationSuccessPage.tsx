@@ -30,7 +30,7 @@ export function RegistrationSuccessPage() {
   const [searchParams] = useSearchParams();
   const tipo = searchParams.get("tipo") ?? "clinica";
 
-  const tipoLabel = tipo === "especialista" ? "especialista" : "clinica";
+  const tipoLabel = tipo === "especialista" ? "especialista" : "clínica";
 
   return (
     <section className={styles.page}>
@@ -41,13 +41,13 @@ export function RegistrationSuccessPage() {
           <h1 className={styles.title}>Cadastro realizado com sucesso!</h1>
 
           <p className={styles.message}>
-            Seu cadastro de {tipoLabel} foi recebido e esta em analise. Voce
-            recebera um e-mail quando sua conta for aprovada.
+            Seu cadastro de {tipoLabel} foi recebido e está em análise. Você
+            receberá um e-mail quando sua conta for aprovada.
           </p>
 
           <Link to="/" className={styles.buttonLink}>
             <Button variant="primary" size="lg">
-              Voltar para a pagina inicial
+              Voltar para a página inicial
             </Button>
           </Link>
         </div>
